@@ -1,0 +1,8 @@
+node_modules
+temp
+*.zip
+*.lock
+log/
+*.log
+.idea
+*.iml
