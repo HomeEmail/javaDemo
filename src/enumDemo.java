@@ -27,6 +27,8 @@ public class enumDemo {
         for (Animals a : Animals.values()){
             System.out.println(a);
             System.out.println(a.toString().equals("DOG"));
+            System.out.println("hashCode:"+a.toString().hashCode());
+            System.out.println("DOG hashCode:"+"DOG".hashCode());
         }
 
         System.out.println("有构造函数的枚举示例：");
