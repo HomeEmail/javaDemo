@@ -1,6 +1,5 @@
-import java.util.Arrays;
-import java.util.Comparator;
-
+import javax.xml.bind.Element;
+import java.util.*;
 
 class Animal{
     int size;
@@ -63,6 +62,51 @@ public class arraySortTest {
         System.out.println("cat weight 排序");
         Arrays.sort(catArray,new CatWeightComparator());
         printCats(catArray);
+
+        //Java中数组(Array)转ArrayList的最高效方法
+        Dog[] array = {new Dog(1),new Dog(2)};
+        List list = new ArrayList(array.length);
+        Collections.addAll(list,array);
+        list.add(new Dog(3));//动态添加一个项
+        System.out.println("ArrayList length:"+list.size());
+        System.out.println("ArrayList[0] object class:"+list.get(0).getClass());
+        System.out.println("ArrayList[1] object value:"+((Dog)list.get(1)).size);//要强制类型转换成Dog
+
+        //遍历数组（集合类）时，需要删除项，使用迭代器iterator来做循环，直接用for语法会报错
+        Iterator iter = list.iterator();
+        while (iter.hasNext()){
+            Dog d=((Dog)iter.next());
+            if(d.size==1){//找到要删除的项了
+                iter.remove();
+            }
+        }
+        System.out.println("after delete a item -> ArrayList length:"+list.size());
+
+
+        //HashSet test
+        System.out.println("HashSet test:");
+        Set set = new HashSet();
+        set.add("天天");
+        set.add("编码");
+
+        //直接在for语法会报错 删除元素 运行时会报错,应该改用迭代器iterator
+        /*for(Object s:set){
+            if(s.equals("编码")){
+                System.out.println("HashSet will remove a item");
+                set.remove(s);
+
+            }
+        }*/
+        Iterator iterSet=set.iterator();
+        while (iterSet.hasNext()){
+            String s=(String)iterSet.next();
+            if(s.equals("编码")){
+                iterSet.remove();
+                System.out.println("HashSet removed a item");
+            }
+        }
+
+
 
     }
     public static void printDogs(Animal[] animals){
