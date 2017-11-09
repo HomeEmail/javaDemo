@@ -10,7 +10,7 @@
 
 3.项目拉取下来时，需要设置项目结构 指定sources，使ide识别java文件
 
-4.META-INF/MANIFEST.MF 这是生成jar包时用的配置文件
+4.生成jar包 打开项目配置 配置Artifacts （META-INF/MANIFEST.MF不用提交到svn，由ide配置打包即可）
 
 
 
