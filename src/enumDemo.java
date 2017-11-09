@@ -6,6 +6,7 @@ enum Animals{
 }
 
 enum Color{
+    //每个变量都是Color的一个实例
     RED(1),YELLOW(2),BLUE(3);
     private int value;
     private Color(){}
