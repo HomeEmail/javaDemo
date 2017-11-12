@@ -11,7 +11,8 @@ import java.io.*;
 public class readFileByLine {
     
     private  static void readFile(File fin) throws IOException {
-        FileInputStream fis=new FileInputStream(fin);
+        FileInputStream fis=null;
+        fis=new FileInputStream(fin);
 
         //Construct BufferedReader from InputStreamReader
         BufferedReader br = null;
@@ -28,12 +29,14 @@ public class readFileByLine {
             if(br!=null){
                 br.close();
             }
+            
         }
         
         
     }
     private static void writeFile(File fin) throws IOException{
-        FileOutputStream fos = new FileOutputStream(fin);
+        FileOutputStream fos = null;
+        fos=new FileOutputStream(fin);
 
         BufferedWriter bw = null;
         bw=new BufferedWriter(new OutputStreamWriter(fos,"UTF-8"));
@@ -45,10 +48,12 @@ public class readFileByLine {
         }catch (IOException e){
             e.printStackTrace();
         }finally {
+            
             if(bw!=null){
                 bw.close();
                 System.out.println("write file ok!");
             }
+            
         }
         
 
